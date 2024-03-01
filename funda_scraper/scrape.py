@@ -160,7 +160,7 @@ class FundaScraper(object):
 
         if self.days_on_funda is not None:
             days_on_funda = self.days_on_funda
-            main_url = f"{main_url}&publication_date={max_price}"
+            main_url = f"{main_url}&publication_date={days_on_funda}"
 
         return main_url
 
