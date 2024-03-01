@@ -128,6 +128,7 @@ class FundaScraper(object):
         logger.info("*** Phase 1: Fetch all the available links from all pages *** ")
         urls = []
         main_url = self._build_main_query_url()
+        logger.info(f"*** The main url is {main_url} ***")
 
         for i in tqdm(range(page_start, page_start + n_pages)):
             try:
