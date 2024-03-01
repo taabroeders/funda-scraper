@@ -99,6 +99,7 @@ class FundaScraper(object):
         find_past: Optional[bool] = None,
         min_price: Optional[int] = None,
         max_price: Optional[int] = None,
+        days_on_funda: Optional[int] = None,
     ) -> None:
         """Overwrite or initialise the searching scope."""
         if area is not None:
