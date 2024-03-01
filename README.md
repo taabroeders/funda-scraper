@@ -23,7 +23,7 @@ export PYTHONPATH=${PWD}
 ```
 from funda_scraper import FundaScraper
 
-scraper = FundaScraper(area="amsterdam", want_to="rent", find_past=False, page_start=1, n_pages=3, min_price=500, max_price=2000)
+scraper = FundaScraper(area="amsterdam", want_to="rent", find_past=False, page_start=1, n_pages=3, min_price=500, max_price=2000, days_on_funda=1)
 df = scraper.run(raw_data=False, save=True, filepath="test.csv")
 df.head()
 ```
@@ -71,10 +71,4 @@ The scraped raw result contains following information:
 - city
 
 You can use `scraper.run(raw_data=True)` to fetch the data without preprocessing.
-
-## More information
-
-You can check the [example notebook](https://colab.research.google.com/drive/1hNzJJRWxD59lrbeDpfY1OUpBz0NktmfW?usp=sharing) for further details. 
-Please give me a [star](https://github.com/whchien/funda-scraper) if you find this project helpful. 
-
 
