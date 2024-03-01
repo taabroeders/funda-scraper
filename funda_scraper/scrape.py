@@ -31,6 +31,7 @@ class FundaScraper(object):
         find_past: bool = False,
         min_price: Optional[int] = None,
         max_price: Optional[int] = None,
+        days_on_funda: Optional[int] = None,
     ):
         # Init attributes
         self.area = area.lower().replace(" ", "-")
@@ -41,6 +42,7 @@ class FundaScraper(object):
         self.page_end = self.page_start + self.n_pages - 1
         self.min_price = min_price
         self.max_price = max_price
+        self.days_on_funda = days_on_funda
 
         # Instantiate along the way
         self.links: List[str] = []
@@ -58,6 +60,7 @@ class FundaScraper(object):
             f"find_past={self.find_past})"
             f"min_price={self.min_price})"
             f"max_price={self.max_price})"
+            f"days_on_funda={self.days_on_funda})"
         )
 
     @property
@@ -112,6 +115,8 @@ class FundaScraper(object):
             self.min_price = min_price
         if max_price is not None:
             self.max_price = max_price
+        if days_on_funda is not None:
+            self.days_on_funda = days_on_funda
 
     def fetch_all_links(self, page_start: int = None, n_pages: int = None) -> None:
         """Find all the available links across multiple pages."""
@@ -151,6 +156,10 @@ class FundaScraper(object):
             min_price = "" if self.min_price is None else self.min_price
             max_price = "" if self.max_price is None else self.max_price
             main_url = f"{main_url}&price=%22{min_price}-{max_price}%22"
+
+        if self.days_on_funda is not None:
+            days_on_funda = self.days_on_funda
+            main_url = f"{main_url}&publication_date={max_price}"
 
         return main_url
 
