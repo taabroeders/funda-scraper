@@ -128,7 +128,6 @@ class FundaScraper(object):
         logger.info("*** Phase 1: Fetch all the available links from all pages *** ")
         urls = []
         main_url = self._build_main_query_url()
-        logger.info(f"*** The main url is {main_url} ***")
 
         for i in tqdm(range(page_start, page_start + n_pages)):
             try:
@@ -161,7 +160,7 @@ class FundaScraper(object):
 
         if self.days_on_funda is not None:
             days_on_funda = self.days_on_funda
-            main_url = f"{main_url}&publication_date={days_on_funda}"
+            main_url = f"{main_url}&publication_date=%22{days_on_funda}%22"
 
         return main_url
 
@@ -337,6 +336,9 @@ if __name__ == "__main__":
         "--max_price", type=int, help="Specify the max price", default=None
     )
     parser.add_argument(
+        "--days_on_funda", type=int, help="Specify the max days on funda", default=None
+    )
+    parser.add_argument(
         "--raw_data",
         type=bool,
         help="Indicate whether you want the raw scraping result or preprocessed one",
@@ -358,6 +360,7 @@ if __name__ == "__main__":
         n_pages=args.n_pages,
         min_price=args.min_price,
         max_price=args.max_price,
+        days_on_funda=args.days_on_funda,
     )
     df = scraper.run(raw_data=args.raw_data, save=args.save)
     print(df.head())
