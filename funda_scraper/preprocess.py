@@ -165,13 +165,12 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     keep_cols_sold = keep_cols + config.keep_cols.sold_data
 
     def get_houseid(url_str):
-      print(url_str)
       tmp = url_str.split("/")[-2]
-      print(tmp)
-      if tmp.split("-")[1].isnumeric():
+      parts = tmp.split("-")
+      if len(parts) > 1:
         return tmp.split("-")[1]
       else:
-        return url_str.split("/")[-1]
+        return parts[0]
 
     # Info
     df["house_id"] = df["url"].apply(lambda x: int(get_houseid(x)))
