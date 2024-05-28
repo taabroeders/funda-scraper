@@ -165,6 +165,7 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     keep_cols_sold = keep_cols + config.keep_cols.sold_data
 
     def get_houseid(url_str):
+      print(url_str)
       tmp = url_str.split("/")[-2]
       print(tmp)
       if tmp.split("-")[1].isnumeric():
