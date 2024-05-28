@@ -164,11 +164,15 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     keep_cols = config.keep_cols.selling_data
     keep_cols_sold = keep_cols + config.keep_cols.sold_data
 
+    def get_houseid(url_str):
+      tmp = url_str.split("/")[-2]
+      if tmp.split("-")[1].isnumeric():
+        return tmp.split("-")[1]
+      else:
+        return url_str.split("/")[-1]
+
     # Info
-    print(df["url"])
-    df["url"] = df["url"].str.rstrip('/') + '/'
-    print(df["url"])
-    df["house_id"] = df["url"].apply(lambda x: int(x.split("/")[-2].split("-")[1]))
+    df["house_id"] = df["url"].apply(lambda x: int(get_houseid(x)))
     df["house_type"] = df["url"].apply(lambda x: x.split("/")[-2].split("-")[0])
     df = df[df["house_type"].isin(["appartement", "huis"])]
 
