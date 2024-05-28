@@ -165,7 +165,9 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     keep_cols_sold = keep_cols + config.keep_cols.sold_data
 
     # Info
+    print(df["url"])
     df["url"] = df["url"].str.rstrip('/') + '/'
+    print(df["url"])
     df["house_id"] = df["url"].apply(lambda x: int(x.split("/")[-2].split("-")[1]))
     df["house_type"] = df["url"].apply(lambda x: x.split("/")[-2].split("-")[0])
     df = df[df["house_type"].isin(["appartement", "huis"])]
