@@ -190,7 +190,7 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     # Price
     price_col = "price_sold" if is_past else "price"
     df["price"] = df[price_col].apply(clean_price)
-    print(df["price"])
+    print(df["living_area"])
     df = df[df["living_area"] != 0]
     df = df[df["price"] != 0]
     df["living_area"] = df["living_area"].apply(clean_living_area)
