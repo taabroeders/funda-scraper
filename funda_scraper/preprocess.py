@@ -233,5 +233,5 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     # df["ym_list"] = df["date_list"].apply(lambda x: x.to_period("M").to_timestamp())
     # df["year_list"] = df["date_list"].apply(lambda x: x.year)
     # df["date_list"] = df["date_list"].dt.date
-    print(df[0]) 
+    print(df.head()) 
     return df[keep_cols].reset_index(drop=True)
