@@ -3,11 +3,12 @@ header:
 base_url: https://www.funda.nl/en
 keep_cols:
   sold_data:
+    - date_sold
     - ym_sold
     - year_sold
-    - term_days
-    - date_sold
+#    - term_days
   selling_data:
+    - url
     - house_id
     - city
     - house_type
@@ -23,9 +24,9 @@ keep_cols:
     - address
     - year_built
     - house_age
-#    - date_list
-#    - ym_list
-#    - year_list
+    # - date_list
+    # - ym_list
+    # - year_list
     - descrip
     - photo
 css_selector:
@@ -35,7 +36,7 @@ css_selector:
   descrip: ".object-description-body"
   listed_since: ".fd-align-items-center:nth-child(6) span"
   zip_code: ".object-header__subtitle"
-  size: ".fd-m-right-xl--bp-m .fd-text--nowrap"
+  size: ".object-kenmerken-list:nth-child(8) .fd-align-items-center:nth-child(5) span"
   year: ".fd-align-items-center~ .fd-align-items-center .fd-m-right-xs"
   living_area: ".object-kenmerken-list:nth-child(8) .fd-align-items-center:nth-child(2) span"
   kind_of_house: ".object-kenmerken-list:nth-child(5) .fd-align-items-center:nth-child(2) span"
