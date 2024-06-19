@@ -186,14 +186,15 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     df["house_id"] = df["url"].apply(lambda x: get_houseid(x))
     df["house_type"] = df["url"].apply(lambda x: get_housetype(x))
     df = df[df["house_type"].isin(["appartement", "huis"])]
+    pd.set_option('display.max_colwidth', None)
+    df.head(5)
 
     # Price
     price_col = "price_sold" if is_past else "price"
     df["price"] = df[price_col].apply(clean_price)
-    print(df["living_area"])
-    df = df[df["living_area"] != 0]
     df = df[df["price"] != 0]
     df["living_area"] = df["living_area"].apply(clean_living_area)
+    df = df[df["living_area"] != 0]
     df["price_m2"] = round(df.price / df.living_area, 1)
 
     # Location
