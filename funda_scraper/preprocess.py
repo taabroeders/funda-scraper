@@ -172,9 +172,19 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
       else:
         return parts[0]
 
+    def get_housetype(url_str):
+      tmp1 = url_str.split("/")[-2]
+      tmp2 = url_str.split("/")[-3] 
+      parts1 = tmp1.split("-")
+      if len(parts1) > 1:
+        return parts1[0]
+      else:
+        parts1 = tmp2.split("-")
+        return parts2[0] 
+
     # Info
     df["house_id"] = df["url"].apply(lambda x: int(get_houseid(x)))
-    df["house_type"] = df["url"].apply(lambda x: x.split("/")[-2].split("-")[0])
+    df["house_type"] = df["url"].apply(lambda x: get_housetype(x))
     print(df["url"])
     print(df["house_type"])
     df = df[df["house_type"].isin(["appartement", "huis"])]
