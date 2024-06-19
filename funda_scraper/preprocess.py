@@ -183,10 +183,8 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
         return parts2[0] 
 
     # Info
-    df["house_id"] = df["url"].apply(lambda x: int(get_houseid(x)))
+    df["house_id"] = df["url"].apply(lambda x: get_houseid(x))
     df["house_type"] = df["url"].apply(lambda x: get_housetype(x))
-    print(df["url"])
-    print(df["house_type"])
     df = df[df["house_type"].isin(["appartement", "huis"])]
     # Price
     price_col = "price_sold" if is_past else "price"
