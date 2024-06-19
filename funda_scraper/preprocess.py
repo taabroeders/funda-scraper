@@ -187,7 +187,7 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     df["house_type"] = df["url"].apply(lambda x: get_housetype(x))
     df = df[df["house_type"].isin(["appartement", "huis"])]
     pd.set_option('display.max_colwidth', None)
-    display(df)
+    print(df)
 
     # Price
     price_col = "price_sold" if is_past else "price"
