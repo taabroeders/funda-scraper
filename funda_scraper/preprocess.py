@@ -179,7 +179,7 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
       if len(parts1) > 1:
         return parts1[0]
       else:
-        parts1 = tmp2.split("-")
+        parts2 = tmp2.split("-")
         return parts2[0] 
 
     # Info
