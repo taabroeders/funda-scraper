@@ -186,13 +186,16 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     df["house_id"] = df["url"].apply(lambda x: get_houseid(x))
     df["house_type"] = df["url"].apply(lambda x: get_housetype(x))
     df = df[df["house_type"].isin(["appartement", "huis"])]
+    print(df.head)
     # Price
     price_col = "price_sold" if is_past else "price"
     df["price"] = df[price_col].apply(clean_price)
     df = df[df["price"] != 0]
+    print(df.head)
     df["living_area"] = df["living_area"].apply(clean_living_area)
     df = df[df["living_area"] != 0]
     df["price_m2"] = round(df.price / df.living_area, 1)
+    print(df.head)
 
     # Location
     df["zip"] = df["zip_code"].apply(lambda x: x[:4])
@@ -202,6 +205,7 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     df["bedroom"] = df["num_of_rooms"].apply(find_n_bedroom)
     df["bathroom"] = df["num_of_bathrooms"].apply(find_n_bathroom)
     df["energy_label"] = df["energy_label"].apply(clean_energy_label)
+    print(df.head)
 
     # Time
     df["year_built"] = df["year"].apply(clean_year).astype(int)
@@ -233,5 +237,5 @@ def preprocess_data(df: pd.DataFrame, is_past: bool) -> pd.DataFrame:
     # df["ym_list"] = df["date_list"].apply(lambda x: x.to_period("M").to_timestamp())
     # df["year_list"] = df["date_list"].apply(lambda x: x.year)
     # df["date_list"] = df["date_list"].dt.date
-    print(df.head()) 
+    
     return df[keep_cols].reset_index(drop=True)
