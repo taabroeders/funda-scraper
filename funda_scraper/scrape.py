@@ -348,7 +348,9 @@ class FundaScraper(object):
             self.get_value_from_css(soup, self.selectors.date_sold).split("\r")[0],
             self.get_value_from_css(soup, self.selectors.term).split("\r")[0],
             self.get_value_from_css(soup, self.selectors.price_sold).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.last_ask_price).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.last_ask_price).split("\r")[
+                0
+            ],
             self.get_value_from_css(soup, self.selectors.last_ask_price_m2).split("\r")[
                 0
             ],
