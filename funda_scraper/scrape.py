@@ -214,9 +214,9 @@ class FundaScraper(object):
         print(link)
         link_url = urlparse(link)
         link_path = link_url.path.split("/")
-        property_id = link_path.pop(6)
-        property_address = link_path.pop(5)
-        property_city = link_path.pop(4)
+        property_id = link_path.pop(5)
+        property_address = link_path.pop(4)
+        property_city = link_path.pop(3)
         link_path = link_path[2:3]
         link_path.extend([property_city, property_address, property_id, "?old_ldp=true"])
         fixed_link = urlunparse(
