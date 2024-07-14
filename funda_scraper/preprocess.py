@@ -169,7 +169,7 @@ def preprocess_data(
 
     # Info
     print(df)
-    print(df["url"]
+    print(df["url"])
     df["house_id"] = df["url"].apply(lambda x: int(x.split("/")[-2]))
     df["house_type"] = df["url"].apply(lambda x: x.split("/")[-3].split("-")[0])
     df = df[df["house_type"].isin(["appartement", "huis"])]
