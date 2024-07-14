@@ -211,7 +211,6 @@ class FundaScraper(object):
     @staticmethod
     def fix_link(link: str) -> str:
         """Fixes a given property link to ensure proper URL formatting."""
-        print(link)
         link_url = urlparse(link)
         link_path = link_url.path.split("/")
         property_id = link_path.pop(5)
@@ -222,7 +221,6 @@ class FundaScraper(object):
         fixed_link = urlunparse(
             (link_url.scheme, link_url.netloc+"/en/detail", "/".join(link_path), "", "", "")
         )
-        print(fixed_link)
         return fixed_link
 
     def fetch_all_links(self, page_start: int = None, n_pages: int = None) -> None:
@@ -345,12 +343,12 @@ class FundaScraper(object):
             self.get_value_from_css(soup, self.selectors.ownership),
             self.get_value_from_css(soup, self.selectors.exteriors),
             self.get_value_from_css(soup, self.selectors.parking),
-            self.get_value_from_css(soup, self.selectors.neighborhood_name),
-            self.get_value_from_css(soup, self.selectors.date_list),
-            self.get_value_from_css(soup, self.selectors.date_sold),
-            self.get_value_from_css(soup, self.selectors.term),
-            self.get_value_from_css(soup, self.selectors.price_sold),
-            self.get_value_from_css(soup, self.selectors.last_ask_price),
+            self.get_value_from_css(soup, self.selectors.neighborhood_name).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.date_list).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.date_sold).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.term).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.price_sold).split("\r")[0],
+            self.get_value_from_css(soup, self.selectors.last_ask_price).split("\r")[0],
             self.get_value_from_css(soup, self.selectors.last_ask_price_m2).split("\r")[
                 0
             ],
@@ -390,7 +388,7 @@ class FundaScraper(object):
         for i, c in enumerate(content):
             df.loc[len(df)] = c
 
-        df["city"] = df["url"].map(lambda x: x.split("/")[4])
+        df["city"] = df["url"].map(lambda x: x.split("/")[6])
         df["log_id"] = datetime.datetime.now().strftime("%Y%m-%d%H-%M%S")
         if not self.find_past:
             df = df.drop(["term", "price_sold", "date_sold"], axis=1)
