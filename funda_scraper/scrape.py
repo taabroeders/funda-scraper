@@ -213,13 +213,13 @@ class FundaScraper(object):
         """Fixes a given property link to ensure proper URL formatting."""
         link_url = urlparse(link)
         link_path = link_url.path.split("/")
-        property_id = link_path.pop(5)
-        property_address = link_path.pop(4).split("-")
+        property_id = link_path.pop(6)
+        property_address = link_path.pop(5)
+	property_city = link_path.pop(4)
         link_path = link_path[2:4]
-        property_address.insert(1, property_id)
-        link_path.extend(["-".join(property_address), "?old_ldp=true"])
+        link_path.extend([property_city, property_address, property_id, "?old_ldp=true"])
         fixed_link = urlunparse(
-            (link_url.scheme, link_url.netloc, "/en/".join(link_path), "", "", "")
+            (link_url.scheme, link_url.netloc, "/".join(link_path), "", "", "")
         )
         return fixed_link
 
