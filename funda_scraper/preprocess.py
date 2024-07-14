@@ -168,8 +168,8 @@ def preprocess_data(
         keep_cols.extend(keep_extra_cols)
 
     # Info
-    df["house_id"] = df["url"].apply(lambda x: int(x.split("/")[-2].split("-")[1]))
-    df["house_type"] = df["url"].apply(lambda x: x.split("/")[-2].split("-")[0])
+    df["house_id"] = df["url"].apply(lambda x: int(x.split("/")[-1].split("-")[1]))
+    df["house_type"] = df["url"].apply(lambda x: x.split("/")[-1].split("-")[0])
     df = df[df["house_type"].isin(["appartement", "huis"])]
 
     # Price
