@@ -211,6 +211,7 @@ class FundaScraper(object):
     @staticmethod
     def fix_link(link: str) -> str:
         """Fixes a given property link to ensure proper URL formatting."""
+        print(link)
         link_url = urlparse(link)
         link_path = link_url.path.split("/")
         property_id = link_path.pop(6)
@@ -221,6 +222,7 @@ class FundaScraper(object):
         fixed_link = urlunparse(
             (link_url.scheme, link_url.netloc+"/en", "/".join(link_path), "", "", "")
         )
+        print(fixed_link)
         return fixed_link
 
     def fetch_all_links(self, page_start: int = None, n_pages: int = None) -> None:
