@@ -55,6 +55,6 @@ css_selector:
   date_sold: "dd:nth-child(4)"
   term: "dd:nth-child(6)"
   price_sold: ".object-header__price--historic"
-  last_ask_price: ".object-kenmerken-list:nth-child(2) .fd-align-items-center:nth-child(2)"
-  last_ask_price_m2: ".object-kenmerken-list__asking-price"
+  last_ask_price: "#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(2) > dl > div:nth-child(1) > dd > span"
+  last_ask_price_m2: "#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(2) > dl > div:nth-child(2) > dd > span"
   photo: ".media-viewer-overview__section-list-item--photo img[data-lazy]"
