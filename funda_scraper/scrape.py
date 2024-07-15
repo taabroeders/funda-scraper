@@ -219,7 +219,7 @@ class FundaScraper(object):
         link_path = link_path[2:3]
         link_path.extend([property_city, property_address, property_id, "?old_ldp=true"])
         fixed_link = urlunparse(
-            (link_url.scheme, link_url.netloc+"/en/detail", "/".join(link_path), "", "", "")
+            (link_url.scheme, link_url.netloc+"/detail", "/".join(link_path), "", "", "")
         )
         return fixed_link
 
@@ -390,7 +390,7 @@ class FundaScraper(object):
         for i, c in enumerate(content):
             df.loc[len(df)] = c
 
-        df["city"] = df["url"].map(lambda x: x.split("/")[6])
+        df["city"] = df["url"].map(lambda x: x.split("/")[5])
         df["log_id"] = datetime.datetime.now().strftime("%Y%m-%d%H-%M%S")
         if not self.find_past:
             df = df.drop(["term", "price_sold", "date_sold"], axis=1)
