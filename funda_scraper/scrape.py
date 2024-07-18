@@ -367,7 +367,7 @@ class FundaScraper(object):
         photos_list = [
             p.get("srcset") for p in soup.find_all("img",srcset=True)
         ]
-        photos_string = ", ".join(photos_list)
+        photos_string = ", ".join(photos_list).replace("\n", "").replace(",,", ",")
 
         # Clean up the retried result from one page
         result = [r.replace("\n", "").replace("\r", "").strip() for r in result]
