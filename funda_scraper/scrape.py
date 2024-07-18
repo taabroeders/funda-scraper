@@ -343,14 +343,12 @@ class FundaScraper(object):
             self.get_value_from_css(soup, self.selectors.ownership),
             self.get_value_from_css(soup, self.selectors.exteriors),
             self.get_value_from_css(soup, self.selectors.parking),
-            self.get_value_from_css(soup, self.selectors.neighborhood_name).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.date_list).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.date_sold).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.term).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.price_sold).split("\r")[0],
-            self.get_value_from_css(soup, self.selectors.last_ask_price).split("\r")[
-                0
-            ],
+            self.get_value_from_css(soup, self.selectors.neighborhood_name),
+            self.get_value_from_css(soup, self.selectors.date_list),
+            self.get_value_from_css(soup, self.selectors.date_sold),
+            self.get_value_from_css(soup, self.selectors.term),
+            self.get_value_from_css(soup, self.selectors.price_sold),
+            self.get_value_from_css(soup, self.selectors.last_ask_price),
             self.get_value_from_css(soup, self.selectors.last_ask_price_m2).split("\r")[
                 0
             ],

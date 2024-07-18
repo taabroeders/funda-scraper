@@ -33,7 +33,7 @@ css_selector:
   url: none
   price: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div.mb-4.border-b.border-solid.border-neutral-20.pb-4 > div.mt-5.flex.flex-wrap.items-center.gap-3.lg\:mt-6 > div > div > span'
   address: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div.mb-4.border-b.border-solid.border-neutral-20.pb-4 > div.relative.flex.justify-between.pt-2.lg\:pt-4 > h1 > span.block.text-2xl.font-bold.md\:text-3xl.lg\:text-4xl'
-  descrip: '#headlessui-disclosure-panel-na95v21Wgfm-36'
+  descrip: '#headlessui-disclosure-panel-na95v21Wgfm-30'
   listed_since: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(2) > dl > div:nth-child(3) > dd > span'
   zip_code: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div.mb-4.border-b.border-solid.border-neutral-20.pb-4 > div.relative.flex.justify-between.pt-2.lg\:pt-4 > h1 > span.text-neutral-40'
   size: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(4) > dl > div:nth-child(2) > dd > span'
@@ -57,4 +57,3 @@ css_selector:
   price_sold: '.object-header__price--historic'
   last_ask_price: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(2) > dl > div:nth-child(1) > dd > span'
   last_ask_price_m2: '#__nuxt > section > main > div > div.relative.m-auto.flex.max-w-screen-lg.flex-col.lg\:flex-row.xl\:px-0 > div.mt-4.px-4.lg\:mt-6.lg\:w-\[70\%\].lg\:pr-6 > div:nth-child(2) > section.mt-6.md\:mt-7 > div:nth-child(2) > dl > div:nth-child(2) > dd > span'
-  photo: '.media-viewer-overview__section-list-item--photo img[data-lazy]' 
