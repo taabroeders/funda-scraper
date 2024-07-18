@@ -367,7 +367,7 @@ class FundaScraper(object):
                     result[4] = update_list_since
 
         photos_list = [
-            p.get("data-lazy-srcset") for p in soup.select(self.selectors.photo)
+            p.get("srcset") for p in soup.find_all("img",srcset=True)
         ]
         photos_string = ", ".join(photos_list)
 
